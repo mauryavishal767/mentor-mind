@@ -2,13 +2,14 @@ import LoadingState from "@/components/loading-state";
 import { auth } from "@/lib/auth";
 import { loadSearchParams } from "@/modules/agents/params";
 import { AgentsListHeaders } from "@/modules/agents/ui/components/agents-list-header";
-import { AgentsView, AgentsViewLoading } from "@/modules/agents/ui/views/agents-view";
+import { AgentsView, AgentsViewError, AgentsViewLoading } from "@/modules/agents/ui/views/agents-view";
 import { getQueryClient, trpc } from "@/trpc/server";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import type { SearchParams } from "nuqs";
 import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 interface Props {
     searchParams: Promise<SearchParams>;
@@ -34,7 +35,9 @@ const Page = async ({ searchParams }: Props) => {
         <AgentsListHeaders />
         <HydrationBoundary state={dehydrate(queryClient)}>
             <Suspense fallback={<AgentsViewLoading />}>
-                <AgentsView/>
+                <ErrorBoundary fallback={<AgentsViewError/>}>
+                    <AgentsView/>
+                </ErrorBoundary>
             </Suspense>
         </HydrationBoundary>
     </>

@@ -11,4 +11,6 @@ const ErrorPage = () => {
     )
 }
 
-export default ErrorPage;
+// TODO: delete this page
+
+// export default ErrorPage;

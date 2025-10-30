@@ -1,6 +1,7 @@
 import EmptyState from "@/components/empty-state"
 import { Button } from "@/components/ui/button"
-import { Link, VideoIcon } from "lucide-react"
+import { VideoIcon } from "lucide-react"
+import Link from "next/link";
 
 interface Props{
     meetingId: string;

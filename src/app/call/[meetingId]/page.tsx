@@ -3,8 +3,8 @@ import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { getQueryClient, trpc } from "@/trpc/server";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { Suspense } from "react";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+// import { Suspense } from "react";
+// import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import { CallView } from "@/modules/call/ui/views/call-view";
 
 interface Props {

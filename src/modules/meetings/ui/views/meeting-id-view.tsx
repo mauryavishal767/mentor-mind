@@ -12,7 +12,7 @@ import { useConfirm } from "@/hooks/use-confirm";
 import { UpdateMeetingDialog } from "../components/update-meeting-dialog";
 import { UpcomingState } from "../components/upcoming-state";
 import { ActiveState } from "../components/active-state";
-import { CancelledState } from "../components/cancelled-state";
+// import { CancelledState } from "../components/cancelled-state";
 import { ProcessingState } from "../components/processing-state";
 import { CompletedState } from "../components/completed-state";
 
@@ -56,7 +56,7 @@ export const MeetingIdView = ({meetingId}:Props) => {
 
     const isActive = data.status === "active";
     const isUpcoming = data.status === "upcoming";
-    const isCancelled = data.status === "cancelled";
+    // const isCancelled = data.status === "cancelled";
     const isCompleted = data.status === "completed";
     const isProcessing = data.status === "processing";
     
@@ -73,9 +73,8 @@ export const MeetingIdView = ({meetingId}:Props) => {
                     meetingId={meetingId}
                     meetingName={data.name}
                     onEdit={()=> setUpdateMeetingDialogOpen(true)}
-                    onRemove={()=>{handleRemoveMeeting}}
+                    onRemove={handleRemoveMeeting}
                 />
-                {isCancelled && <CancelledState />}
                 {isProcessing && <ProcessingState />}
                 {isCompleted && <CompletedState data={data}/>}
                 {isActive && <ActiveState 

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form"
 import { useState } from "react";
-import { auth } from "@/lib/auth";
+// import { auth } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
